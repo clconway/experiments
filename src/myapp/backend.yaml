@@ -1,0 +1,9 @@
+application: capable-hangout-770
+module: backend
+version: 1
+runtime: go
+api_version: go1
+
+handlers:
+- url: /populate/.*
+script: _go_app
