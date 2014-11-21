@@ -27,15 +27,13 @@ func suggest(w http.ResponseWriter, r *http.Request) {
 		Key:    "foo",
 		Object: []string{"foo", "bar", "baz"},
 	}
-	if err := memcache.Set(c, staticItem); err != nil {
+	if err := memcache.Gob.Set(c, staticItem); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 
 	var suggestions SuggestList
-	if item, err := memcache.Get(c, keyword); err == memcache.ErrCacheMiss {
+	if _, err := memcache.Gob.Get(c, keyword, &suggestions); err == memcache.ErrCacheMiss {
 		suggestions = []string{"cache miss", keyword}
-	} else {
-		suggestions = item.Object.(SuggestList)
 	}
 
 	if err := suggestTemplate.Execute(w, &Suggest{keyword, suggestions}); err != nil {
