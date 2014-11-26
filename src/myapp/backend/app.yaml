@@ -6,4 +6,4 @@ api_version: go1
 
 handlers:
 - url: /populate/.*
-script: _go_app
+  script: _go_app

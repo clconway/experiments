@@ -6,7 +6,7 @@ import (
 
 	"appengine"
 	"appengine/memcache"
-	"myapp/suggest"
+	"suggest"
 )
 
 func init() {

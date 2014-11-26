@@ -1,0 +1,12 @@
+global:
+  images:
+    - container.cloud.google.com/_b_shipshape_registry/android_lint:prod
+  ignore:
+    - campfire-out/
+    - third_party/
+    - shipshape/analyzers/govet/testdata/
+
+events:
+  - event: default
+    categories:
+      - go vet
