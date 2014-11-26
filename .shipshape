@@ -10,3 +10,5 @@ events:
   - event: default
     categories:
       - go vet
+      - PyLint
+      - JSHint
