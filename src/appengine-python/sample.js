@@ -1,4 +1,4 @@
-function main() {
-  var foo = 15;
-//  bar(7);
+function test() {
+  var myTitle = 'Persuasion';
+  console.log(mytitle);
 }
